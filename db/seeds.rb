@@ -11,10 +11,14 @@
 
 
 Video.create(title: 'Family Guy', description: 'Seth McFarlene animation show about Peter Griffin.',
-  small_cover_url: '/tmp/family_guy.jpg', large_cover_url: '/tmp/large.jpg')
+  small_cover_url: '/tmp/family_guy.jpg', large_cover_url: '/tmp/monk_large.jpg')
 
 Video.create(title: 'Family Guy', description: 'Seth McFarlene animation show about Peter Griffin.',
-  small_cover_url: '/tmp/family_guy.jpg', large_cover_url: '/tmp/large.jpg')
+  small_cover_url: '/tmp/family_guy.jpg', large_cover_url: '/tmp/monk_large.jpg')
 
 Video.create(title: 'South Park', description: 'South Park based on a cartoon in Dever',
-  small_cover_url: '/tmp/south_park.jpg', large_cover_url: '/tmp/large.jpg')
+  small_cover_url: '/tmp/south_park.jpg', large_cover_url: '/tmp/monk_large.jpg')
+
+Video.create(title: 'South Park', description: 'South Park based on a cartoon in Dever',
+  small_cover_url: '/tmp/south_park.jpg', large_cover_url: '/tmp/monk_large.jpg')
+
