@@ -9,3 +9,4 @@ class VideosController < ApplicationController
   end
 
 end
+

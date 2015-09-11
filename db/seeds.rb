@@ -11,7 +11,7 @@ horror = Category.create!(name: 'Horror')
 
 
 
-Video.create!(title: 'Family Guy', 
+movie = Video.create!(title: 'Family Guy', 
   description: 'Seth McFarlene animation show about Peter Griffin.',
   small_cover_url: '/tmp/family_guy.jpg', 
   large_cover_url: '/tmp/monk_large.jpg',

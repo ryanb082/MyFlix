@@ -5,5 +5,5 @@ Myflix::Application.routes.draw do
 
 
   resources :videos, only: [:show, :index]
-  resource :categories, only: [:show]
+  resources :categories, only: [:show]
 end
