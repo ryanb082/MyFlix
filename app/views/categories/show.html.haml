@@ -6,9 +6,9 @@
     Sort by:
     %select
       (name="")
-      %option (value="a-z") Title: A - Z
-      %option (value="z-a") Title: Z - A
-      %option (value="rating") Rating
+      %option Title: A - Z
+      %option  Title: Z - A
+      %option  Rating
     %article.row
       - @category.videos.each do |video|
         .video.col-md-2
