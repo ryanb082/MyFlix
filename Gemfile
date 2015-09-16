@@ -11,6 +11,7 @@ gem 'uglifier'
 gem 'jquery-rails'
 gem 'pg'
 gem 'bcrypt'
+gem 'faker'
 
 group :development do
   gem 'thin'
@@ -26,6 +27,7 @@ end
 
 group :test do
   gem 'shoulda-matchers'
+  gem 'fabrication'
 end
 
 group :test do
