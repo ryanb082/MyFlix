@@ -25,7 +25,7 @@ Video.create!(title: 'Family Guy',
   category: animation
 )
 
-Video.create!(title: 'South Park',
+south_park = Video.create!(title: 'South Park',
   description: 'South Park based on a cartoon in Dever',
   small_cover_url: '/tmp/south_park.jpg', 
   large_cover_url: '/tmp/monk_large.jpg',
@@ -59,4 +59,10 @@ Video.create!(title: 'South Park',
   large_cover_url: '/tmp/monk_large.jpg', 
   category: animation
 )
+
+ryan = User.create!(full_name: 'Ryan Bent', password: 'password', email: 'ryan@example.com')
+
+Review.create!(user: ryan, video: south_park, rating: 3, content: 'Great show!')
+
+Review.create!(user: ryan, video: south_park, rating: 1, content: 'Show was so so')
 
