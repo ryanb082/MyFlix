@@ -83,6 +83,16 @@ describe QueueItemsController do
       delete :destroy, id: queue_item.id
       expect(QueueItem.count).to eq(0)
     end
+
+    it "normalizes the remaining queue items" do
+      alice = Fabricate(:user)
+      session[:user_id] = alice.id
+      queue_item1 = Fabricate(:queue_item, user: alice, position: 1)
+
+      queue_item2 = Fabricate(:queue_item, user: alice, position: 2)
+      delete :destroy, id: queue_item1.id
+      expect(QueueItem.first.position).to eq(1)
+    end
     it 'does not delete the queue item if the current user does not own the queue item' do
       alice = Fabricate(:user)
       bob = Fabricate(:user)
@@ -153,8 +163,27 @@ describe QueueItemsController do
         expect(queue_item1.reload.position).to eq(1)
       end
     end
-    context "with unauthenticated users"
-    context "with queue_items that do not belong to the current user"
+    context "with unauthenticated users" do
+      it 'redirects to the sign in path' do
+        alice = Fabricate(:user)
+        session[:user_id] = nil
+        queue_item1 = Fabricate(:queue_item, user: alice, position: 1 )
+        queue_item2 = Fabricate(:queue_item, user: alice, position: 2 )
+        post :update_queue, queue_items: [{id: queue_item1.id, position: 3}, {id: queue_item2.id, position: 2.1}]
+        expect(response).to redirect_to sign_in_path
+      end
+    end
+    context "with queue_items that do not belong to the current user" do
+      it "does not change the queue items" do
+        alice = Fabricate(:user)
+        bob = Fabricate(:user)
+        session[:user_id] = alice.id
+        queue_item1 = Fabricate(:queue_item, user: bob, position: 1 )
+        queue_item2 = Fabricate(:queue_item, user: alice, position: 2 )
+        post :update_queue, queue_items: [{id: queue_item1.id, position: 3}, {id: queue_item2.id, position: 2}]
+        expect(queue_item1.reload.position).to eq(1)
+      end
+    end
   end
 
 end
