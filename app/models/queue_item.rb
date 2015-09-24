@@ -9,9 +9,16 @@ class QueueItem < ActiveRecord::Base
 
   
   def rating
-    review = Review.where(user_id: user.id, video_id: video.id).first
+binding.pry
+    review = Review.find_by(user: user, video: video)
 
     review.rating if review
+  end
+
+  def rating=(new_rating)
+    review = Review.find_by(user: user, video: video)
+
+    review.update_attributes(rating: new_rating)
   end
 
   def category_name
