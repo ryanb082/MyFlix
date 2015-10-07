@@ -30,6 +30,7 @@ group :test do
   gem 'fabrication'
   gem 'capybara'
   gem 'database_cleaner', '1.2.0'
+  gem 'launchy'
 end
 
 
